@@ -52,7 +52,7 @@ task:
       - mkdir -p ~/work
       - cd ~/work
       - repo init -u $MANIFEST
-      - repo sync -j31 --force-sync --no-tags --no-clone-bundle
+      - repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
