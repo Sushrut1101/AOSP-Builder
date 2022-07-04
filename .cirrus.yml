@@ -71,7 +71,7 @@ task:
       - ccache -M 50G
       - . build/envsetup.sh
       - lunch "$LUNCH_COMBO"
-      - mka -j31 $TARGET
+      - m aex -j$(nproc --all) | tee log.txt $TARGET
      
   Upload_script:
       - echo "============================"
