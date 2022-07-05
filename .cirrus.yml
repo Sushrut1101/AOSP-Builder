@@ -1,5 +1,5 @@
 env:
-    MANIFEST: https://github.com/Havoc-OS/android_manifest.git -b eleven
+    MANIFEST: https://github.com/Havoc-OS/android_manifest.git -b eleven 
     DEVICE: vince
     OEM: xiaomi
     DT_LINK: https://github.com/Lite-120/android_device_xiaomi_vince.git
