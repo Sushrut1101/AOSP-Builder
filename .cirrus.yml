@@ -2,13 +2,13 @@ env:
     MANIFEST: https://github.com/Havoc-OS/android_manifest.git -b eleven 
     DEVICE: vince
     OEM: xiaomi
-    DT_LINK: https://github.com/Lite-120/android_device_xiaomi_vince.git
+    DT_LINK: https://github.com/Lite009/device_xiaomi_vince.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://github.com/Lite-120/android_vendor_xiaomi_vince.git
+    VT_LINK: https://github.com/Lite009/vendor_xiaomi_vince.git
     VT_PATH: vendor/$OEM/$DEVICE
     KT_LINK: https://github.com/GhostMaster69-dev/android_kernel_xiaomi_vince.git
     PLATFORM: msm8953
-    KT_PATH: kernel/$OEM/$PLATFORM
+    KT_PATH: kernel/$OEM/$DEVICE
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: aosp_"$DEVICE"-userdebug
