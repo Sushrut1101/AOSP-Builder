@@ -9,10 +9,12 @@ env:
     KT_LINK: https://github.com/GhostMaster69-dev/android_kernel_xiaomi_vince.git
     PLATFORM: msm8953
     KT_PATH: kernel/$OEM/$DEVICE
+    CLANG_LINK: https://gitlab.com/GhostMaster69-dev/cosmic-clang.git
+    CLANG_PATH: prebuilts/clang/host/linux-x86/clang-cosmic
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: fluid_$DEVICE-userdebug
-    OUTPUT: Fluid*.zip
+    LUNCH_COMBO: cherish_$DEVICE-userdebug
+    OUTPUT: CherishOS*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -56,6 +58,7 @@ task:
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
+      - git clone $CLANG_LINK $CLANG_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
