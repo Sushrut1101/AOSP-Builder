@@ -1,18 +1,18 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
+    MANIFEST: https://github.com/LineageOS/android.git -b lineage-19.1
+    DEVICE: rosemary
     OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
+    DT_LINK: https://github.com/Woomymy/device_redmi_rosemary.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
+    VT_LINK: https://github.com/Woomymy/android_vendor_redmi_rosemary.git
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
+    KT_LINK: https://github.com/Woomymy/kernel_redmi_rosemary.git
+    PLATFORM: mt6785
     KT_PATH: kernel/$OEM/$PLATFORM
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_"$DEVICE"-userdebug
-    OUTPUT: PixelExperience*.zip
+    LUNCH_COMBO: lineage_"$DEVICE"-userdebug
+    OUTPUT: LineAge191*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -33,8 +33,8 @@ task:
        - sudo apt update -y && sudo apt install git aria2 curl wget rsync zip unzip lzma cpio ccache clang -y
        - sudo apt install python3 -y
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
-       - git config --global user.name "Sushrut1101"
-       - git config --global user.email "guptasushrut@gmail.com"
+       - git config --global user.name "HambaAllah"
+       - git config --global user.email "IslamicCentre@Taubat.com"
        - git clone https://github.com/akhilnarang/scripts.git ~/scripts
        - cd ~/scripts
        - sudo bash setup/android_build_env.sh
@@ -52,7 +52,7 @@ task:
       - mkdir -p ~/work
       - cd ~/work
       - repo init -u $MANIFEST
-      - repo sync -j31 --force-sync --no-tags --no-clone-bundle
+      - repo sync 
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
@@ -90,5 +90,4 @@ task:
       - echo "----------------------------"
       - cat link.txt && echo " "
       - echo "============================"
-        
-
+       
