@@ -1,5 +1,5 @@
 env:
-    MANIFEST: https://github.com/Evolution-X/manifest -b elle
+    MANIFEST: https://github.com/Evolution-X/manifest -b elle-aosp
     DEVICE: viva
     OEM: xiaomi
     DT_LINK: https://github.com/edenefrii77/android_device_xiaomi_viva.git
