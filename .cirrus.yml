@@ -2,7 +2,7 @@ env:
     MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
     DEVICE: viva
     OEM: xiaomi
-    DT_LINK: https://github.com/xiaomi-mt6781-devs/android_device_xiaomi_viva.git
+    DT_LINK: https://github.com/edenefrii77/android_device_xiaomi_viva.git
     DT_PATH: device/$OEM/$DEVICE
     VT_LINK: https://github.com/xiaomi-mt6781-devs/android_vendor_xiaomi_viva.git
     VT_PATH: vendor/$OEM/$DEVICE
