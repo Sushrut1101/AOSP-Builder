@@ -1,18 +1,18 @@
 env:
-    MANIFEST: https://github.com/Evolution-X/manifest -b elle-aosp
-    DEVICE: viva
+    MANIFEST: https://github.com/LineageOS/android.git -b lineage-19.1
+    DEVICE: rosemary
     OEM: xiaomi
-    DT_LINK: https://github.com/edenefrii77/android_device_xiaomi_viva.git
+    DT_LINK: https://github.com/Woomymy/device_redmi_rosemary.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://github.com/xiaomi-mt6781-devs/android_vendor_xiaomi_viva.git
+    VT_LINK: https://github.com/Woomymy/android_vendor_redmi_rosemary.git
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/xiaomi-mt6781-devs/android_device_xiaomi_viva-kernel.git
-    PLATFORM: mt6781
+    KT_LINK: https://github.com/Woomymy/kernel_redmi_rosemary.git
+    PLATFORM: mt6785
     KT_PATH: kernel/$OEM/$PLATFORM
-    TARGET: mka evolution
+    TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: evolution_"$DEVICE"-userdebug
-    OUTPUT: PixelExperience*.zip
+    LUNCH_COMBO: lineage_"$DEVICE"-userdebug
+    OUTPUT: LineAge191*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -52,7 +52,7 @@ task:
       - mkdir -p ~/work
       - cd ~/work
       - repo init -u $MANIFEST
-      - repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+      - repo sync 
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
