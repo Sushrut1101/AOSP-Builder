@@ -11,7 +11,7 @@ env:
     KT_PATH: kernel/$OEM/$PLATFORM
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_"$DEVICE"-userdebug
+    LUNCH_COMBO: aosp_${DEVICE}-userdebug
     OUTPUT: PixelExperience*.zip
 
 task:
