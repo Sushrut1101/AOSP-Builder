@@ -1,6 +1,6 @@
 env:
     MANIFEST: https://github.com/PixelExperience/manifest.git -b thirteen-plus
-    DEVICE: miatoll
+    DEVICE: oscar
     OEM: oneplus
     DT_LINK: https://github.com/OnePlus-sm6375-devices/device_oneplus_oscar.git
     DT_PATH: device/oneplus/oscar
