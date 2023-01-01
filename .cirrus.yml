@@ -9,8 +9,8 @@ env:
     KT_LINK: https://github.com/OnePlus-sm6375-devices/android_kernel_oneplus_sm6375.git
     PLATFORM: sm6375
     KT_PATH: kernel/oneplus/sm6375
-    CT_LINK:https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git
-    CT_PATH:device/oneplus/sm6375-common
+    CT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git
+    CT_PATH: device/oneplus/sm6375-common
     
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
