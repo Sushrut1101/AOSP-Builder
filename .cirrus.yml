@@ -81,7 +81,7 @@ task:
       - ccache -M 50G
       - . build/envsetup.sh
       - lunch "lineage_oscar-userdebug"
-      - mka -j31 $TARGET
+      - mka -j31 bacon
      
   Upload_script:
       - echo "============================"
