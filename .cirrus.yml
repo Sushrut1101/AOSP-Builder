@@ -1,5 +1,5 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b thirteen-plus
+    MANIFEST: https://github.com/LineageOS/android.git -b lineage-19.1
     DEVICE: oscar
     OEM: oneplus
     DT_LINK: https://github.com/OnePlus-sm6375-devices/device_oneplus_oscar.git
@@ -11,7 +11,7 @@ env:
     KT_PATH: kernel/oneplus/sm6375
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_oscar-userdebug
+    LUNCH_COMBO: lineage_oscar-userdebug
     OUTPUT: PixelExperience*.zip
 
 task:
@@ -70,7 +70,7 @@ task:
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - . build/envsetup.sh
-      - lunch "aosp_oscar-userdebug"
+      - lunch "lineage_oscar-userdebug"
       - mka -j31 $TARGET
      
   Upload_script:
