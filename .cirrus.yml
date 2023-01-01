@@ -1,5 +1,5 @@
 env:
-    MANIFEST: https://github.com/LineageOS/android.git -b lineage-19.1
+    MANIFEST: https://github.com/PixelExperience/manifest -b thirteen
     DEVICE: oscar
     OEM: oneplus
     DT_LINK: https://github.com/OnePlus-sm6375-devices/device_oneplus_oscar.git
@@ -58,7 +58,7 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
+      - repo init -u https://github.com/PixelExperience/manifest -b thirteen
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
       - git clone https://github.com/OnePlus-sm6375-devices/device_oneplus_oscar.git device/oneplus/oscar
       - git clone https://github.com/phhgsi/vendor_oneplus_oscar.git vendor/oneplus/oscar
@@ -75,13 +75,13 @@ task:
       - echo "Starting the Build..."
       - echo "============================"
       - cd ~/work
-      - $EXTRA_CMD
+     
       - export USE_CCACHE=1
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - . build/envsetup.sh
       - lunch "lineage_oscar-userdebug"
-      - mka -j31 bacon
+      - make bacon
      
   Upload_script:
       - echo "============================"
