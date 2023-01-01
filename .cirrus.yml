@@ -4,7 +4,7 @@ env:
     OEM: oneplus
     DT_LINK: https://github.com/OnePlus-sm6375-devices/device_oneplus_oscar.git
     DT_PATH: device/oneplus/oscar
-    VT_LINK: https://github.com/Oneplus-sm6375-devices/vendor_oneplus_oscar.git
+    VT_LINK: https://github.com/phhgsi/vendor_oneplus_oscar.git
     VT_PATH: vendor/oneplus/oscar
     KT_LINK: https://github.com/OnePlus-sm6375-devices/android_kernel_oneplus_sm6375.git
     PLATFORM: sm6375
