@@ -13,7 +13,8 @@ env:
     CT_PATH: device/oneplus/sm6375-common
     HT_PATH: hardware/oneplus
     HT_LINK: https://github.com/LineageOS/android_hardware_oneplus.git
-
+    OCT_PATH: device/oneplus/oscar-kernel
+    OCT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus_oscar-kernel.git
 
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
@@ -64,7 +65,7 @@ task:
       - git clone $KT_LINK $KT_PATH
       - git clone $CT_LINK $CT_PATH
       - git clone $HT_LINK $HT_PATH
-
+      - git clone $OCT_LINK $OCT_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
