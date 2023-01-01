@@ -42,6 +42,12 @@ task:
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
        - git config --global user.name "ajaysinghx"
        - git config --global user.email "vipvijayadav@gmail.com"
+       - git clone https://github.com/akhilnarang/scripts.git ~/scripts
+
+       - cd ~/scripts
+
+       - sudo bash setup/android_build_env.sh
+
        - cd ~
      
       
