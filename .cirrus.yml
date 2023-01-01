@@ -59,7 +59,7 @@ task:
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
-      - git clone $CT_Link $CT_PATH
+      - git clone $CT_LINK $CT_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
