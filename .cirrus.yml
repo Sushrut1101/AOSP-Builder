@@ -1,17 +1,24 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
-    OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
-    DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
-    VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
-    KT_PATH: kernel/$OEM/$PLATFORM
+    MANIFEST: https://github.com/PixelExperience/manifest.git -b thirteen
+    DEVICE: oscar
+    OEM: oneplus
+    DT_LINK: https://github.com/ajaysinghx/device_oneplus_oscar.git -b Pixel-experience
+    DT_PATH: device/oneplus/oscar
+    VT_LINK: https://github.com/phhgsi/vendor_oneplus_oscar.git
+    VT_PATH: vendor/oneplus/oscar
+    KT_LINK: https://github.com/OnePlus-sm6375-devices/android_kernel_oneplus_sm6375.git
+    PLATFORM: sm6375
+    KT_PATH: kernel/oneplus/sm6375
+    CT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git
+    CT_PATH: device/oneplus/sm6375-common
+    HT_LINK: https://github.com/PixelExperience/hardware_oneplus.git
+    HT_PATH: hardware/oneplus
+    OCT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus_oscar-kernel.git
+    OCT_PATH: device/oneplus/oscar-kernel
+
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_${DEVICE}-userdebug
+    LUNCH_COMBO: aosp_oscar-userdebug
     OUTPUT: PixelExperience*.zip
 
 task:
@@ -33,12 +40,18 @@ task:
        - sudo apt update -y && sudo apt install git aria2 curl wget rsync zip unzip lzma cpio ccache clang -y
        - sudo apt install python3 -y
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
-       - git config --global user.name "Sushrut1101"
-       - git config --global user.email "guptasushrut@gmail.com"
+       - git config --global user.name "ajaysinghx"
+       - git config --global user.email "vipvijayadav@gmail.com"
        - git clone https://github.com/akhilnarang/scripts.git ~/scripts
+
        - cd ~/scripts
+
        - sudo bash setup/android_build_env.sh
+
        - cd ~
+     
+      
+      
   
   Storage-Checker_script:
       - df -h
@@ -51,11 +64,14 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init -u $MANIFEST
+      - repo init -u https://github.com/PixelExperience/manifest.git -b thirteen
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
-      - git clone $DT_LINK $DT_PATH
-      - git clone $VT_LINK $VT_PATH
-      - git clone $KT_LINK $KT_PATH
+      - git clone https://github.com/ajaysinghx/device_oneplus_oscar.git -b Pixel-experience device/oneplus/oscar
+      - git clone https://github.com/phhgsi/vendor_oneplus_oscar.git vendor/oneplus/oscar
+      - git clone https://github.com/OnePlus-sm6375-devices/android_kernel_oneplus_sm6375.git kernel/oneplus/sm6375
+      - git clone https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git device/oneplus/sm6375-common
+      - git clone https://github.com/PixelExperience/hardware_oneplus.git hardware/oneplus
+      - git clone https://github.com/OnePlus-sm6375-devices/android_device_oneplus_oscar-kernel.git device/oneplus/oscar-kernel
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
@@ -65,24 +81,24 @@ task:
       - echo "Starting the Build..."
       - echo "============================"
       - cd ~/work
-      - $EXTRA_CMD
-      - export USE_CCACHE=1
-      - export CCACHE_EXEC=/usr/bin/ccache
-      - ccache -M 50G
+  
+      
+      
+   
       - . build/envsetup.sh
-      - lunch "$LUNCH_COMBO"
-      - mka -j31 $TARGET
+      - lunch "aosp_oscar-userdebug"
+      - make bacon
      
   Upload_script:
       - echo "============================"
       - echo "Uploading the Build..."
       - echo "============================"
       - cd ~/work
-      - cd out/target/product/"$DEVICE"
+      - cd out/target/product/"oscar"
       - ls -lh
       - pwd
       - chmod 777 *
-      - curl --upload-file $(echo $OUTPUT) https://transfer.sh | tee link.txt && echo " "
+      - curl --upload-file $(echo PixelExperience*.zip) https://transfer.sh | tee link.txt && echo " "
       - echo " "
       - echo "============================"
       - echo "Build Uploaded!"
