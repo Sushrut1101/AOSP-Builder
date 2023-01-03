@@ -51,7 +51,7 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init -u $MANIFEST
+      - repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
