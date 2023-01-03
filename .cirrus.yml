@@ -1,7 +1,7 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
-    OEM: xiaomi
+    MANIFEST: repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
+    DEVICE: holi
+    OEM: oneplus
     DT_LINK: https://github.com/Oneplus-nord-ce-2-lite/device_oneplus_holi.git
     DT_PATH: device/oneplus/holi
     VT_LINK: https://github.com/Oneplus-nord-ce-2-lite/vendor_oneplus_holi.git
@@ -9,7 +9,7 @@ env:
     KT_LINK: https://github.com/Oneplus-nord-ce-2-lite/android_kernel_oneplus_sm6375.git
     PLATFORM: sm6375
     KT_PATH: kernel/oneplus/holi
-    TARGET: bacon
+    TARGET: 
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: aosp_holi-userdebug
     OUTPUT: PixelExperience*.zip
