@@ -1,42 +1,30 @@
 env:
 
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b thirteen
+    MANIFEST: repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
 
-    DEVICE: oscar
+    DEVICE: holi
 
     OEM: oneplus
 
-    DT_LINK: https://github.com/ajaysinghx/device_oneplus_oscar.git -b Pixel-experience
+    DT_LINK: https://github.com/Oneplus-nord-ce-2-lite/device_oneplus_holi.git
 
-    DT_PATH: device/oneplus/oscar
+    DT_PATH: device/oneplus/holi
 
-    VT_LINK: https://github.com/phhgsi/vendor_oneplus_oscar.git
+    VT_LINK: https://github.com/Oneplus-nord-ce-2-lite/vendor_oneplus_holi.git
 
-    VT_PATH: vendor/oneplus/oscar
+    VT_PATH: vendor/oneplus/holi
 
-    KT_LINK: https://github.com/OnePlus-sm6375-devices/android_kernel_oneplus_sm6375.git
+    KT_LINK: https://github.com/Oneplus-nord-ce-2-lite/android_kernel_oneplus_sm6375.git
 
     PLATFORM: sm6375
 
-    KT_PATH: kernel/oneplus/sm6375
+    KT_PATH: kernel/oneplus/holi
 
-    CT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git
-
-    CT_PATH: device/oneplus/sm6375-common
-
-    HT_LINK: https://github.com/PixelExperience/hardware_oneplus.git
-
-    HT_PATH: hardware/oneplus
-
-    OCT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus_oscar-kernel.git
-
-    OCT_PATH: device/oneplus/oscar-kernel
-
-    TARGET: bacon
+    TARGET: 
 
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
 
-    LUNCH_COMBO: aosp_oscar-userdebug
+    LUNCH_COMBO: aosp_holi-userdebug
 
     OUTPUT: PixelExperience*.zip
 
@@ -78,9 +66,9 @@ task:
 
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
 
-       - git config --global user.name "ajaysinghx"
+       - git config --global user.name "Sushrut1101"
 
-       - git config --global user.email "vipvijayadav@gmail.com"
+       - git config --global user.email "guptasushrut@gmail.com"
 
        - git clone https://github.com/akhilnarang/scripts.git ~/scripts
 
@@ -89,12 +77,6 @@ task:
        - sudo bash setup/android_build_env.sh
 
        - cd ~
-
-     
-
-      
-
-      
 
   
 
@@ -120,21 +102,15 @@ task:
 
       - cd ~/work
 
-      - repo init -u https://github.com/PixelExperience/manifest.git -b thirteen
+      - repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
 
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
 
-      - git clone https://github.com/ajaysinghx/device_oneplus_oscar.git -b Pixel-experience device/oneplus/oscar
+      - git clone $DT_LINK $DT_PATH
 
-      - git clone https://github.com/phhgsi/vendor_oneplus_oscar.git vendor/oneplus/oscar
+      - git clone $VT_LINK $VT_PATH
 
-      - git clone https://github.com/OnePlus-sm6375-devices/android_kernel_oneplus_sm6375.git kernel/oneplus/sm6375
-
-      - git clone https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git device/oneplus/sm6375-common
-
-      - git clone https://github.com/PixelExperience/hardware_oneplus.git hardware/oneplus
-
-      - git clone https://github.com/OnePlus-sm6375-devices/android_device_oneplus_oscar-kernel.git device/oneplus/oscar-kernel
+      - git clone $KT_LINK $KT_PATH
 
       - echo "============================"
 
@@ -152,19 +128,19 @@ task:
 
       - cd ~/work
 
-  
+      - $EXTRA_CMD
 
-      
+      - export USE_CCACHE=1
 
-      
+      - export CCACHE_EXEC=/usr/bin/ccache
 
-   
+      - ccache -M 50G
 
       - . build/envsetup.sh
 
-      - lunch "aosp_oscar-userdebug"
+      - lunch "$LUNCH_COMBO"
 
-      - make bacon
+      - mka evolution
 
      
 
@@ -178,7 +154,7 @@ task:
 
       - cd ~/work
 
-      - cd out/target/product/"oscar"
+      - cd out/target/product/"$DEVICE"
 
       - ls -lh
 
@@ -186,7 +162,7 @@ task:
 
       - chmod 777 *
 
-      - curl --upload-file $(echo PixelExperience*.zip) https://transfer.sh | tee link.txt && echo " "
+      - curl --upload-file $(echo $OUTPUT) https://transfer.sh | tee link.txt && echo " "
 
       - echo " "
 
@@ -201,3 +177,6 @@ task:
       - cat link.txt && echo " "
 
       - echo "============================"
+
+
+
