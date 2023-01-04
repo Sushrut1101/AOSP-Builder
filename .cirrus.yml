@@ -1,6 +1,6 @@
 env:
 
-    MANIFEST: repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
+    MANIFEST: repo init -u https://github.com/LineageOS/android.git -b lineage-20.0
 
     DEVICE: holi
 
