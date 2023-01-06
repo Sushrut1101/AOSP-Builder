@@ -1,8 +1,8 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b twelve-plus
+    MANIFEST: https://github.com/PixelExperience/manifest.git -b thirteen
     DEVICE: viva
     OEM: xiaomi
-    DT_LINK: https://github.com/RizalEf75/android_device_xiaomi_viva.git
+    DT_LINK: https://github.com/RizalEf75/android_device_xiaomi_viva.git -b PE-13.0
     DT_PATH: device/$OEM/$DEVICE
     VT_LINK: https://github.com/RizalEf75/android_vendor_xiaomi_viva.git
     VT_PATH: vendor/$OEM/$DEVICE
@@ -33,8 +33,8 @@ task:
        - sudo apt update -y && sudo apt install git aria2 curl wget rsync zip unzip lzma cpio ccache clang -y
        - sudo apt install python3 -y
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
-       - git config --global user.name "Sushrut1101"
-       - git config --global user.email "guptasushrut@gmail.com"
+       - git config --global user.name "RizalEf75"
+       - git config --global user.email "rizalef75@gmail.com"
        - git clone https://github.com/akhilnarang/scripts.git ~/scripts
        - cd ~/scripts
        - sudo bash setup/android_build_env.sh
