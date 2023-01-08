@@ -140,7 +140,7 @@ task:
 
       - lunch "$LUNCH_COMBO"
 
-      - mka evolution
+      - mka bacon -jX
 
      
 
