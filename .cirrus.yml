@@ -1,6 +1,6 @@
 env:
 
-    MANIFEST: repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
+    MANIFEST: repo init -u https://github.com/PixelExperience/manifest -b thirteen
 
     DEVICE: holi
 
