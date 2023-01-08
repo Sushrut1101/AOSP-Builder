@@ -20,7 +20,7 @@ env:
 
     KT_PATH: kernel/oneplus/holi
 
-    TARGET: 
+    TARGET: bacon
 
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
 
@@ -140,7 +140,7 @@ task:
 
       - lunch "$LUNCH_COMBO"
 
-      - mka bacon -j32
+      - mka -j31 bacon
 
      
 
