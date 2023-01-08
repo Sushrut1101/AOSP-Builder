@@ -140,7 +140,7 @@ task:
 
       - lunch "$LUNCH_COMBO"
 
-      - mka -j31 bacon
+      - make bacon
 
      
 
