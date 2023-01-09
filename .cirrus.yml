@@ -51,8 +51,8 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
-      - repo sync -j31 --force-sync --no-tags --no-clone-bundle
+      - repo init -u https://github.com/PixelExperience/manifest -b thirteen
+      - repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
@@ -71,7 +71,7 @@ task:
       - ccache -M 50G
       - . build/envsetup.sh
       - lunch "$LUNCH_COMBO"
-      - mka evolution
+      - mka bacon -j31
      
   Upload_script:
       - echo "============================"
