@@ -1,17 +1,17 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
-    OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
-    DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
-    VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
-    KT_PATH: kernel/$OEM/$PLATFORM
-    TARGET: bacon
+    MANIFEST: repo init -u https://github.com/Evolution-X/manifest.git -b tiramisu
+    DEVICE: holi
+    OEM: oneplus
+    DT_LINK: https://github.com/Oneplus-nord-ce-2-lite/device_oneplus_holi.git
+    DT_PATH: device/oneplus/holi
+    VT_LINK: https://github.com/Oneplus-nord-ce-2-lite/vendor_oneplus_holi.git
+    VT_PATH: vendor/oneplus/holi
+    KT_LINK: https://github.com/Oneplus-nord-ce-2-lite/android_kernel_oneplus_sm6375.git
+    PLATFORM: sm6375
+    KT_PATH: kernel/oneplus/holi
+    TARGET: 
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_${DEVICE}-userdebug
+    LUNCH_COMBO: aosp_holi-userdebug
     OUTPUT: PixelExperience*.zip
 
 task:
@@ -51,8 +51,8 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init -u $MANIFEST
-      - repo sync -j31 --force-sync --no-tags --no-clone-bundle
+      - repo init -u https://github.com/PixelExperience/manifest -b thirteen
+      - repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
@@ -71,7 +71,7 @@ task:
       - ccache -M 50G
       - . build/envsetup.sh
       - lunch "$LUNCH_COMBO"
-      - mka -j31 $TARGET
+      - mka bacon -j31
      
   Upload_script:
       - echo "============================"
