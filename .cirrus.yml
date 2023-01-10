@@ -9,6 +9,9 @@ env:
     KT_LINK: https://github.com/RizalEf75/android_device_xiaomi_viva-kernel.git
     PLATFORM: mt6781
     KT_PATH: kernel/$OEM/$PLATFORM
+    MTK_SEPOLICY_LINK: https://github.com/RizalEf75/android_device_mediatek_sepolicy_vndr.git
+    MTK_SEPOLICY_PATH: device/mediatek/sepolicy_vndr
+    PLATFORM: mt6781
     TARGET: bacon -jX
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: aosp_${DEVICE}-userdebug
