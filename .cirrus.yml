@@ -9,7 +9,7 @@ env:
     KT_LINK: https://github.com/Oneplus-nord-ce-2-lite/android_kernel_oneplus_sm6375.git
     PLATFORM: sm6375
     KT_PATH: kernel/$OEM/$PLATFORM
-    CM_LINK: https://github.com/Oneplus-nord-ce-2-lite/android_device_oneplus-sm6375-common.git
+    CM_LINK: https://github.com/rombuilder/android_device_oneplus-sm6375-common.git
     CM_PATH: device/$OEM/sm6375-common
     HW_LINK: https://github.com/PixelExperience/hardware_oneplus.git
     HW_PATH: hardware/$OEM
