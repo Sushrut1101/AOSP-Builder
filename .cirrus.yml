@@ -1,20 +1,18 @@
 env:
-    MANIFEST: https://github.com/Havoc-OS/android_manifest.git -b eleven 
+    MANIFEST: https://github.com/PixelOS-AOSP/manifest.git -b thirteen
     DEVICE: vince
     OEM: xiaomi
-    DT_LINK: https://github.com/Lite009/device_xiaomi_vince.git
+    DT_LINK: https://github.com/Lite009/android_device_xiaomi_vince.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://github.com/Lite009/vendor_xiaomi_vince.git
+    VT_LINK: https://github.com/Lite009/android_vendor_xiaomi_vince.git
     VT_PATH: vendor/$OEM/$DEVICE
     KT_LINK: https://github.com/GhostMaster69-dev/android_kernel_xiaomi_vince.git
     PLATFORM: msm8953
     KT_PATH: kernel/$OEM/$DEVICE
-    CLANG_LINK: https://gitlab.com/GhostMaster69-dev/cosmic-clang.git
-    CLANG_PATH: prebuilts/clang/host/linux-x86/clang-cosmic
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: cherish_$DEVICE-userdebug
-    OUTPUT: CherishOS*.zip
+    LUNCH_COMBO: aosp_$DEVICE-user
+    OUTPUT: PixelOS*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -58,7 +56,6 @@ task:
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
-      - git clone $CLANG_LINK $CLANG_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
