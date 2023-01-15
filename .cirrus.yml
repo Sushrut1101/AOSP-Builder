@@ -62,7 +62,7 @@ task:
 
   Build_script:
       - echo "============================"
-      - echo "Starting the Build..."
+      - echo "Starting the Build...."
       - echo "============================"
       - cd ~/work
       - $EXTRA_CMD
