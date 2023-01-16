@@ -1,5 +1,5 @@
 env:
-    MANIFEST: https://github.com/PixelOS-AOSP/manifest.git -b thirteen
+    MANIFEST: https://github.com/PixelExtended/manifest -b trece
     DEVICE: vince
     OEM: xiaomi
     DT_LINK: https://github.com/Lite009/android_device_xiaomi_vince.git
