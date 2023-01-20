@@ -71,7 +71,7 @@ task:
       - ccache -M 50G
       - . build/envsetup.sh
       - lunch aosp_miatoll-userdebug
-      - mka bacon -jx
+      - mka bacon -j
      
   Upload_script:
       - echo "============================"
