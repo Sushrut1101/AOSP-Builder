@@ -1,18 +1,18 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
-    OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
+    MANIFEST: https://github.com/LineageOS/android.git -b lineage-19.1
+    DEVICE: gtaxllte
+    OEM: samsung
+    DT_LINK: https://github.com/TALUAtGitHub/android_device_samsung_gtaxllte
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
+    VT_LINK: https://github.com/TALUAtGitHub/android_vendor_samsung_gtaxllte
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
+    KT_LINK: https://github.com/TALUAtGitHub/android_kernel_samsung_exynos7870
+    PLATFORM: exynos7870
     KT_PATH: kernel/$OEM/$PLATFORM
-    TARGET: bacon
+    TARGET: otapackage
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_miatoll-userdebug
-    OUTPUT: PixelExperience*.zip
+    LUNCH_COMBO: lineage_gtaxllte-userdebug
+    OUTPUT: lineage*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -70,8 +70,8 @@ task:
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - . build/envsetup.sh
-      - lunch aosp_miatoll-userdebug
-      - mka bacon -j
+      - lunch lineage_gtaxllte-userdebug
+      - mka otapackage
      
   Upload_script:
       - echo "============================"
