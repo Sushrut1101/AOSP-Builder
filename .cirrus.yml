@@ -70,8 +70,8 @@ task:
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - . build/envsetup.sh
-      - lunch "$LUNCH_COMBO"
-      - mka -j31 $TARGET
+      - lunch aosp_miatoll-userdebug
+      - mka bacon -jx
      
   Upload_script:
       - echo "============================"
