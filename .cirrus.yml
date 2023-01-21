@@ -1,11 +1,9 @@
 env:
-
     DEVICE: gtaxllte
     OEM: samsung
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: lineage_gtaxllte-userdebug
-    OUTPUT: lineage*.zip
-    ‏
+    OUTPUT: lineage*.zip‏
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 240m  
