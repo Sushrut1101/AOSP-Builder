@@ -1,19 +1,11 @@
 env:
-    MANIFEST: https://github.com/LineageOS/android.git -b lineage-19.1
+
     DEVICE: gtaxllte
     OEM: samsung
-    DT_LINK: https://github.com/TALUAtGitHub/android_device_samsung_gtaxllte
-    DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://github.com/TALUAtGitHub/android_vendor_samsung_gtaxllte
-    VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/TALUAtGitHub/android_kernel_samsung_exynos7870
-    PLATFORM: exynos7870
-    KT_PATH: kernel/$OEM/$PLATFORM
-    TARGET: otapackage
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: lineage_gtaxllte-userdebug
     OUTPUT: lineage*.zip
-
+    ‏
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 240m  
@@ -49,13 +41,11 @@ task:
       - echo "============================"
       - echo "Syncing The Sources...."
       - echo "============================"
-      - mkdir -p ~/work
-      - cd ~/work
-      - repo init -u $MANIFEST
-      - repo sync -j31 --force-sync --no-tags --no-clone-bundle
-      - git clone $DT_LINK $DT_PATH
-      - git clone $VT_LINK $VT_PATH
-      - git clone $KT_LINK $KT_PATH
+      - mkdir lineage19.1
+      - cd lineage19.1
+      - repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
+      - git clone https://github.com/TALUAtGitHub/gtaxl-manifests.git -b lineage-19.1 .repo/local_manifests
+      - repo sync --force-sync --no-tags --no-clone-bundle -c
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
@@ -64,7 +54,7 @@ task:
       - echo "============================"
       - echo "Starting the Build..."
       - echo "============================"
-      - cd ~/work
+      - cd lineage19.1
       - $EXTRA_CMD
       - export USE_CCACHE=1
       - export CCACHE_EXEC=/usr/bin/ccache
@@ -77,7 +67,7 @@ task:
       - echo "============================"
       - echo "Uploading the Build..."
       - echo "============================"
-      - cd ~/work
+      - cd lineage19.1
       - cd out/target/product/"$DEVICE"
       - ls -lh
       - pwd
