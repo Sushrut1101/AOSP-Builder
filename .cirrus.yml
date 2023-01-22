@@ -23,8 +23,7 @@ env:
     CM_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git
 
     CM_PATH: device/oneplus/sm6375-common
-    HT_LINK: https://github.com/LineageOS/android_hardware_oneplus.git
-    HT_PATH: hardware/oneplus
+    
     OT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus_oscar-kernel.git
     OT_PATH: device/oneplus/oscar-kernel
     TARGET: breakfast
@@ -75,7 +74,7 @@ task:
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
       - git clone $CM_LINK $CM_PATH
-      - git clone $HT_LINK $HT_PATH
+     
       - git clone $OT_LINK $OT_PATH
       - echo "============================"
       - echo "Syncing Complete!"
