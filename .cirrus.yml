@@ -1,35 +1,5 @@
-env:
 
-    MANIFEST: https://github.com/LineageOS/android.git -b lineage-20.0
-
-    DEVICE: oscar
-
-    OEM: oneplus
-
-    DT_LINK: https://github.com/OnePlus-sm6375-devices/device_oneplus_oscar.git
-
-    DT_PATH: device/$OEM/$DEVICE
-
-    VT_LINK: https://github.com/OnePlus-sm6375-devices/vendor_oneplus_oscar.git
-
-    VT_PATH: vendor/$OEM/$DEVICE
-
-    KT_LINK: https://github.com/OnePlus-sm6375-devices/android_kernel_oneplus_sm6375.git
-
-    PLATFORM: sm6375
-
-    KT_PATH: kernel/$OEM/$PLATFORM
-
-    CM_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus-sm6375-common.git
-
-    CM_PATH: device/oneplus/sm6375-common
-    
-    OT_LINK: https://github.com/OnePlus-sm6375-devices/android_device_oneplus_oscar-kernel.git
-    OT_PATH: device/oneplus/oscar-kernel
-    TARGET: breakfast
-    EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: lineage_oscar-user
-    OUTPUT: PixelExperience*.zip
+ OUTPUT: PixelExperience*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -68,47 +38,27 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init -u $MANIFEST
+      - git clone https://github.com/ponces/treble_build_pe -b thirteen
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
-      - git clone $DT_LINK $DT_PATH
-      - git clone $VT_LINK $VT_PATH
-      - git clone $KT_LINK $KT_PATH
-      - git clone $CM_LINK $CM_PATH
-     
-      - git clone $OT_LINK $OT_PATH
-      - echo "============================"
-      - echo "Syncing Complete!"
-      - echo "============================"
-
-  Build_script:
-      - echo "============================"
-      - echo "Starting the Build..."
-      - echo "============================"
-      - cd ~/work
-      - $EXTRA_CMD
-      - export USE_CCACHE=1
-      - export CCACHE_EXEC=/usr/bin/ccache
-      - ccache -M 50G
-      - . build/envsetup.sh
-      - lunch "$LUNCH_COMBO"
-      - mka $TARGET
-     
-  Upload_script:
-      - echo "============================"
-      - echo "Uploading the Build..."
-      - echo "============================"
-      - cd ~/work
-      - cd out/target/product/"$DEVICE"
-      - ls -lh
-      - pwd
-      - chmod 777 *
-      - curl --upload-file $(echo $OUTPUT) https://transfer.sh | tee link.txt && echo " "
-      - echo " "
-      - echo "============================"
-      - echo "Build Uploaded!"
-      - echo "Please see the link Below-  "
-      - echo "----------------------------"
-      - cat link.txt && echo " "
-      - echo "============================"
-        
+      
+      - sudo bash treble_build_pe/build.sh thirteen
+  
+   Upload_script :  
+      - echo "============================"  
+      - echo "Uploading the Build to GitHub Release..." 
+      - echo "============================" 
+      - cd ~/work - cd out/target/product/"$DEVICE" 
+      - ls -lh - pwd - chmod 777 * 
+      - git clone https://github.com/<OWNER>/<REPO>.git 
+      - cd <REPO> 
+      - git checkout -b <BRANCH> 
+      - git config --global user.email "<YOUR_EMAIL>" 
+      - git config --global user.name "<YOUR_USERNAME>" 
+      - git add $(echo $OUTPUT) 
+      - git commit -m "Upload build" 
+      - git push --set-upstream origin <BRANCH> 
+      - echo " " - echo "============================" 
+      - echo "Build Uploaded to GitHub Release!" 
+      - echo "Please visit the release page for the link" 
+      - echo "============================" 
 
