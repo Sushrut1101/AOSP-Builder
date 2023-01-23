@@ -39,11 +39,11 @@ task:
       - echo "============================"
       - echo "Syncing The Sources...."
       - echo "============================"
-      - mkdir lineage19.1
-      - cd lineage19.1
-      - repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
+      - mkdir lineage20.0
+      - cd lineage20.0
+      - repo init -u https://github.com/LineageOS/android.git -b lineage-20.0
       - git clone https://github.com/TALUAtGitHub/gtaxl-manifests.git -b lineage-19.1 .repo/local_manifests
-      - repo sync --force-sync --no-tags --no-clone-bundle -c
+      - repo sync -j31 --force-sync --no-tags --no-clone-bundle
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
@@ -52,7 +52,7 @@ task:
       - echo "============================"
       - echo "Starting the Build..."
       - echo "============================"
-      - cd lineage19.1
+      - cd lineage20.0
       - $EXTRA_CMD
       - export USE_CCACHE=1
       - export CCACHE_EXEC=/usr/bin/ccache
@@ -65,7 +65,7 @@ task:
       - echo "============================"
       - echo "Uploading the Build..."
       - echo "============================"
-      - cd lineage19.1
+      - cd lineage20.0
       - cd out/target/product/"$DEVICE"
       - ls -lh
       - pwd
