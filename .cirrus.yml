@@ -11,7 +11,7 @@ env:
     KT_PATH: kernel/$OEM/$PLATFORM
     CM_LINK: https://github.com/rombuilder/android_device_oneplus-sm6375-common.git
     CM_PATH: device/$OEM/sm6375-common
-    HW_LINK: https://github.com/phhgsi/hardware_oplus.git
+    HW_LINK: https://github.com/LineageOS/android_hardware_oplus.git
     HW_PATH: hardware/$OEM
     
     TARGET: bacon
