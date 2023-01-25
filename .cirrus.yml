@@ -1,17 +1,22 @@
 env:
     MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
-    OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
+    DEVICE: holi
+    OEM: oneplus
+    DT_LINK: https://github.com/Oneplus-nord-ce-2-lite/device_oneplus_holi.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
+    VT_LINK: https://github.com/Oneplus-nord-ce-2-lite/vendor_oneplus_holi.git
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
+    KT_LINK: https://github.com/Oneplus-nord-ce-2-lite/android_kernel_oneplus_sm6375.git
+    PLATFORM: sm6375
     KT_PATH: kernel/$OEM/$PLATFORM
+    CM_LINK: https://github.com/rombuilder/android_device_oneplus-sm6375-common.git
+    CM_PATH: device/$OEM/sm6375-common
+    HW_LINK: https://github.com/phhgsi/hardware_oplus.git
+    HW_PATH: hardware/$OEM
+    
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_${DEVICE}-userdebug
+    LUNCH_COMBO: aosp_holi-userdebug
     OUTPUT: PixelExperience*.zip
 
 task:
@@ -33,8 +38,8 @@ task:
        - sudo apt update -y && sudo apt install git aria2 curl wget rsync zip unzip lzma cpio ccache clang -y
        - sudo apt install python3 -y
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
-       - git config --global user.name "Sushrut1101"
-       - git config --global user.email "guptasushrut@gmail.com"
+       - git config --global user.name "phhgsi"
+       - git config --global user.email "ajay24ce008@gmail.com"
        - git clone https://github.com/akhilnarang/scripts.git ~/scripts
        - cd ~/scripts
        - sudo bash setup/android_build_env.sh
@@ -56,6 +61,8 @@ task:
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
+      - git clone $CM_LINK $CM_PATH
+      - git clone $HW_LINK $HW_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
