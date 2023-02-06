@@ -6,8 +6,8 @@ env:
     DT_PATH: device/$OEM/$DEVICE
     VT_LINK: https://github.com/rinto02/vendor_realme_RMX2020.git
     VT_PATH: vendor/$OEM/$DEVICE
-    VT_IMS_LINK: https://github.com/rinto02/vendor_realme_RMX2020-ims.git
-    VT_IMS_PATH: vendor/realme/RMX2020-ims
+    VTI_LINK: https://github.com/rinto02/vendor_realme_RMX2020-ims.git
+    VTI_PATH: vendor/realme/RMX2020-ims
     CL_LINK: https://github.com/rinto02/prebuilts_clang_host_linux-x86_clang-r437112
     CL_PATH: prebuilts/clang/host/linux-x86/clang-r437112
     KT_LINK: https://github.com/rinto02/kernel_realme_RMX2020.git
@@ -59,7 +59,7 @@ task:
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
-      - git clone $VT_IMS_LINK $VT_IMS_PATH
+      - git clone $VTI_LINK $VTI_PATH
       - git clone $CL_LINK $CL_PATH
       - git clone $KT_LINK $KT_PATH
       - echo "============================"
