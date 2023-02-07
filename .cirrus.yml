@@ -8,14 +8,16 @@ env:
     VT_PATH: vendor/$OEM/$DEVICE
     VTI_LINK: https://github.com/rinto02/vendor_realme_RMX2020-ims.git
     VTI_PATH: vendor/realme/RMX2020-ims
-    CL_LINK: https://github.com/rinto02/prebuilts_clang_host_linux-x86_clang-r437112
-    CL_PATH: prebuilts/clang/host/linux-x86/clang-r437112
+    CL_LINK: https://github.com/rinto02/proton-clang.git
+    CL_PATH: prebuilts/clang/host/linux-x86/clang-proton
+    SE_LINK: https://github.com/rinto02/device_mediatek_sepolicy_vndr.git
+    SE_PATH: device/mediatek/sepolicy_vndr
     KT_LINK: https://github.com/rinto02/kernel_realme_RMX2020.git
     PLATFORM: mt6768
-    KT_PATH: kernel/$OEM/$PLATFORM
+    KT_PATH: kernel/$OEM/$DEVICE
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: Cherish_${DEVICE}-userdebug
+    LUNCH_COMBO: cherish_${DEVICE}-userdebug
     OUTPUT: CherishOS*.zip
 
 task:
@@ -57,11 +59,14 @@ task:
       - cd ~/work
       - repo init -u $MANIFEST
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
-      - git clone $DT_LINK $DT_PATH
-      - git clone $VT_LINK $VT_PATH
-      - git clone $VTI_LINK $VTI_PATH
-      - git clone $CL_LINK $CL_PATH
-      - git clone $KT_LINK $KT_PATH
+      - git clone --depth=1 $DT_LINK $DT_PATH
+      - git clone --depth=1 $VT_LINK $VT_PATH
+      - git clone --depth=1 $VTI_LINK $VTI_PATH
+      - git clone --depth=1 $CL_LINK $CL_PATH
+      - git clone --depth=1 $SE_LINK $SE_PATH
+      - git clone --depth=1 $KT_LINK $KT_PATH
+      - rm -rf frameworks/base
+      - git clone --depth=1 https://github.com/rinto02/cherish_frameworks_base frameworks/base
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
@@ -76,8 +81,7 @@ task:
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - . build/envsetup.sh
-      - lunch "$LUNCH_COMBO"
-      - mka -j31 $TARGET
+      - brunch RMX2020
      
   Upload_script:
       - echo "============================"
