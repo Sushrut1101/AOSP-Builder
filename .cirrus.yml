@@ -1,25 +1,24 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
+    MANIFEST: https://github.com/ricedroidOSS/android -b thirteen
+    DEVICE: vince
     OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
+    DT_LINK: https://github.com/anandhan07/android_device_xiaomi_vince -b ricedroid-13.0
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
+    VT_LINK: https://github.com/anandhan07/android_vendor_xiaomi_vince -b 13.0
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
-    KT_PATH: kernel/$OEM/$PLATFORM
+    KT_LINK: https://github.com/GhostMaster69-dev/android_kernel_xiaomi_vince -b master
+    KT_PATH: kernel/$OEM/$DEVICE
     TARGET: bacon
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_${DEVICE}-userdebug
-    OUTPUT: PixelExperience*.zip
+    LUNCH_COMBO: lineage_${DEVICE}-user
+    OUTPUT: RiceDroid*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 240m  
   container:
       image: ubuntu:20.04
-      cpu: 8
+      cpu: 16
       memory: 32G
         
   Build-Env-Setup_script:
