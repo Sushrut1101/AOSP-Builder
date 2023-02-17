@@ -36,8 +36,8 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init -u $MANIFEST
-      - repo sync -j31 --force-sync --no-tags --no-clone-bundle
+      - repo init --depth=1 -u $MANIFET
+      - repo sync -j4 --force-sync --no-tags --no-clone-bundle
       - git clone $DT_LINK $DT_PATH
       - git clone $VT_LINK $VT_PATH
       - git clone $KT_LINK $KT_PATH
