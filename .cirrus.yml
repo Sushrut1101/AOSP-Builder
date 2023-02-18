@@ -9,10 +9,10 @@ env:
     #KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
     PLATFORM: mt6833
     #KT_PATH: kernel/$OEM/$PLATFORM
-    TARGET: recoveryimage
+    TARGET: bootimage
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: aosp_${DEVICE}-userdebug
-    OUTPUT: PixelExperience*.zip
+    OUTPUT: boot.img
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
