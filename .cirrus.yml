@@ -7,7 +7,7 @@ env:
     #VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
     #VT_PATH: vendor/$OEM/$DEVICE
     KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: light
+    PLATFORM: mt6833
     KT_PATH: kernel/$OEM/$PLATFORM
     TARGET: bootimage
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
