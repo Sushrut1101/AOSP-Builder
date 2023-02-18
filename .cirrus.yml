@@ -1,18 +1,18 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
+    MANIFEST: https://github.com/PixelExperience/manifest -b thirteen
+    DEVICE: light
     OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
+    DT_LINK: https://github.com/thetanmaygupta/aosp_device_light.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
-    VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
-    KT_PATH: kernel/$OEM/$PLATFORM
-    TARGET: bacon
+    #VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
+    #VT_PATH: vendor/$OEM/$DEVICE
+    #KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
+    PLATFORM: light
+    #KT_PATH: kernel/$OEM/$PLATFORM
+    TARGET: bootimage
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: aosp_${DEVICE}-userdebug
-    OUTPUT: PixelExperience*.zip
+    OUTPUT: boot.img
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -38,8 +38,8 @@ task:
       - repo init --depth=1 -u $MANIFEST
       - repo sync -j4 --force-sync --no-tags --no-clone-bundle
       - git clone $DT_LINK $DT_PATH
-      - git clone $VT_LINK $VT_PATH
-      - git clone $KT_LINK $KT_PATH
+      #git clone $VT_LINK $VT_PATH
+      #git clone $KT_LINK $KT_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
