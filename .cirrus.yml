@@ -54,8 +54,8 @@ task:
       - repo init -u $MANIFEST
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
       - git clone $DT_LINK $DT_PATH
-      - git clone $VT_LINK $VT_PATH
-      - git clone $KT_LINK $KT_PATH
+      #git clone $VT_LINK $VT_PATH
+      #git clone $KT_LINK $KT_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
