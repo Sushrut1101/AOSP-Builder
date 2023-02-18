@@ -2,7 +2,7 @@ env:
     MANIFEST: https://github.com/PixelExperience/manifest -b thirteen
     DEVICE: light
     OEM: xiaomi
-    DT_LINK: https://gitlab.com/thetanmaygupta/test -b aosp
+    DT_LINK: https://gitlab.com/thetanmaygupta/device_light
     DT_PATH: device/$OEM/$DEVICE
     #VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
     #VT_PATH: vendor/$OEM/$DEVICE
