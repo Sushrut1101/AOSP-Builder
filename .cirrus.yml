@@ -6,9 +6,9 @@ env:
     DT_PATH: device/$OEM/$DEVICE
     #VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
     #VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: mt6833
-    KT_PATH: kernel/$OEM/$PLATFORM
+    #KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
+    PLATFORM: light
+    #KT_PATH: kernel/$OEM/$PLATFORM
     TARGET: bootimage
     EXTRA_CMD: export SKIP_ABI_CHECKS=true
     LUNCH_COMBO: aosp_${DEVICE}-userdebug
@@ -55,7 +55,7 @@ task:
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
       - git clone $DT_LINK $DT_PATH
       #git clone $VT_LINK $VT_PATH
-      - git clone $KT_LINK $KT_PATH
+      #git clone $KT_LINK $KT_PATH
       - echo "============================"
       - echo "Syncing Complete!"
       - echo "============================"
