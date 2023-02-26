@@ -30,6 +30,7 @@ task:
       - cd ~/ajay 
    
       - git clone https://github.com/ShivamKumarJha/android_tools.git
-      
+      - cd ~
+      - cd ~/ajay/android_tools
       - ls
       
