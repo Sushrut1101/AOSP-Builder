@@ -25,10 +25,7 @@ task:
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - cd ~
-      - cd ~/work 
-      - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
       
-      - cd ~
       - mkdir -p ~/ajay 
       - cd ~/ajay 
    
@@ -36,5 +33,13 @@ task:
       - cd ~/android_tools
       - chmod +x setup.sh
       - sudo bash setup.sh
-      - ./tools/dummy_dt.sh ../work
+      
+      - mkdir -p ~/aj 
+      - cd ~/aj
+      - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
+      
+      - cd ~
+      - cd ~/ajay
+      - cd ~/android_tools
+      - ./tools/dummy_dt.sh ../aj
 
