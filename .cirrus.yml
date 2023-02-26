@@ -27,10 +27,13 @@ task:
       - cd ~
       - cd ~/work 
       - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
+      
       - cd ~
       - mkdir -p ~/ajay 
       - cd ~/ajay 
+   
       - git clone https://github.com/ShivamKumarJha/android_tools.git
+      - cd ~/android_tools
       - sudo bash setup.sh
       - ./tools/dummy_dt.sh ../work
 
