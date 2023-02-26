@@ -30,16 +30,7 @@ task:
       - cd ~/ajay 
    
       - git clone https://github.com/ShivamKumarJha/android_tools.git
-      - cd ~/android_tools
+      
       - chmod +x setup.sh
       - sudo bash setup.sh
       
-      - mkdir -p ~/aj 
-      - cd ~/aj
-      - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
-      
-      - cd ~
-      - cd ~/ajay
-      - cd ~/android_tools
-      - ./tools/dummy_dt.sh ../aj
-
