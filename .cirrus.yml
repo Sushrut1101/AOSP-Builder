@@ -1,26 +1,11 @@
-env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
-    OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
-    DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
-    VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
-    PLATFORM: sm6250
-    KT_PATH: kernel/$OEM/$PLATFORM
-    TARGET: bacon
-    EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: aosp_${DEVICE}-userdebug
-    OUTPUT: PixelExperience*.zip
 
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 240m  
   container:
       image: ghcr.io/sushrut1101/docker:arch
-      cpu: 4
-      memory: 16G
+      cpu: 8
+      memory: 32G
 
 
 
@@ -35,44 +20,17 @@ task:
       - echo "============================"
       - mkdir -p ~/work
       - cd ~/work
-      - repo init --depth=1 -u $MANIFEST
-      - repo sync -j4 --force-sync --no-tags --no-clone-bundle
-      - git clone $DT_LINK $DT_PATH
-      - git clone $VT_LINK $VT_PATH
-      - git clone $KT_LINK $KT_PATH
-      - echo "============================"
-      - echo "Syncing Complete!"
-      - echo "============================"
-
-  Build_script:
-      - echo "============================"
-      - echo "Starting the Build..."
-      - echo "============================"
-      - cd ~/work
       - $EXTRA_CMD
       - export USE_CCACHE=1
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
-      - . build/envsetup.sh
-      - lunch "$LUNCH_COMBO"
-      - mka -j31 $TARGET
-     
-  Upload_script:
-      - echo "============================"
-      - echo "Uploading the Build..."
-      - echo "============================"
-      - cd ~/work
-      - cd out/target/product/"$DEVICE"
-      - ls -lh
-      - pwd
-      - chmod 777 *
-      - curl --upload-file $(echo $OUTPUT) https://transfer.sh | tee link.txt && echo " "
-      - echo " "
-      - echo "============================"
-      - echo "Build Uploaded!"
-      - echo "Please see the link Below-  "
-      - echo "----------------------------"
-      - cat link.txt && echo " "
-      - echo "============================"
-        
+      _ cd ~
+      - cd ~/work 
+      - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
+      - cd ~
+      - mkdir -p ~/ajay 
+      - cd ~/ajay 
+      - git clone https://github.com/ShivamKumarJha/android_tools.git
+      - sudo bash setup.sh
+      - ./tools/dummy_dt.sh ../work
 
