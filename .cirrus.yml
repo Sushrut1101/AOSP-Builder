@@ -31,6 +31,5 @@ task:
    
       - git clone https://github.com/ShivamKumarJha/android_tools.git
       - cd ~/android_tools
-      - chmod +x setup.sh
-      - sudo bash setup.sh
+      - ls
       
