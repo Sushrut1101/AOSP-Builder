@@ -24,7 +24,7 @@ task:
       - export USE_CCACHE=1
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
-      _ cd ~
+      - cd ~
       - cd ~/work 
       - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
       - cd ~
