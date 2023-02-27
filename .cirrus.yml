@@ -35,7 +35,7 @@ task:
       - chmod +x setup.sh
       - sudo bash setup.sh
       - cd ~
-      - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
+      - git clone git@dumps.tadiphone.dev:dumps/oneplus/op535dl1.git
       - ls 
       - cd ~/ajay/android_tools
       - ./tools/dummy_dt.sh~/op535dl1
