@@ -1,12 +1,12 @@
 env:
     MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
-    OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
+    DEVICE: holi
+    OEM: oneplus
+    DT_LINK: https://github.com/Oneplus-nord-ce-2-lite/device_oneplus_holi.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
+    VT_LINK: https://github.com/Oneplus-nord-ce-2-lite/vendor_oneplus_holi.git
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
+    KT_LINK: https://github.com/Oneplus-nord-ce-2-lite/android_kernel_oneplus_sm6375.git
     PLATFORM: sm6250
     KT_PATH: kernel/$OEM/$PLATFORM
     TARGET: bacon
@@ -19,8 +19,8 @@ task:
   timeout_in: 240m  
   container:
       image: ghcr.io/sushrut1101/docker:arch
-      cpu: 4
-      memory: 16G
+      cpu: 8
+      memory: 32G
 
 
 
@@ -55,7 +55,7 @@ task:
       - ccache -M 50G
       - . build/envsetup.sh
       - lunch "$LUNCH_COMBO"
-      - mka -j31 $TARGET
+      - mka bacon
      
   Upload_script:
       - echo "============================"
