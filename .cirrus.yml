@@ -25,18 +25,10 @@ task:
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - cd ~
+      - git clone https://github.com/A-s-academy/DumprX.git
+      - ./setup.sh
+      - ./dumper.sh https://gauss-componentotacostmanual-sg.allawnofs.com/remove-c7b3170d7bf82759c620704cf4d9a910/component-ota/22/12/22/d9fa21424242470c8880aa324b03b1f1.zip
       
-      - mkdir -p ~/ajay 
-      - cd ~/ajay 
    
-      - git clone https://github.com/ShivamKumarJha/android_tools.git
-      - cd ~
-      - cd ~/ajay/android_tools
-      - chmod +x setup.sh
-      - sudo bash setup.sh
-      - cd ~
-      - git clone https://dumps.tadiphone.dev/dumps/oneplus/op535dl1.git
-      - ls 
-      - cd ~/ajay/android_tools
-      - ./tools/dummy_dt.sh~/op535dl1
+     
       
