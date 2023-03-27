@@ -2,11 +2,11 @@ env:
     MANIFEST: https://github.com/PixelExtended/manifest.git -b trece
     DEVICE: vince
     OEM: xiaomi
-    DT_LINK: https://github.com/Lite009/android_device_xiaomi_vince.git
+    DT_LINK: https://github.com/henricaodopao/android_device_asus_x00qd.git
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://github.com/Lite009/android_vendor_xiaomi_vince.git
+    VT_LINK: https://github.com/henricaodopao/android_vendor_asus_x00qd.git
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/GhostMaster69-dev/android_kernel_xiaomi_vince.git
+    KT_LINK: https://github.com/henricaodopao-dev/android_kernel_asus_x00qd.git
     PLATFORM: msm8953
     KT_PATH: kernel/$OEM/$DEVICE
     TARGET: bacon
