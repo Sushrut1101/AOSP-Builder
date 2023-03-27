@@ -1,7 +1,7 @@
 env:
     MANIFEST: https://github.com/PixelExtended/manifest.git -b trece
-    DEVICE: vince
-    OEM: xiaomi
+    DEVICE: x00qd
+    OEM: asus
     DT_LINK: https://github.com/henricaodopao/android_device_asus_x00qd.git
     DT_PATH: device/$OEM/$DEVICE
     VT_LINK: https://github.com/henricaodopao/android_vendor_asus_x00qd.git
