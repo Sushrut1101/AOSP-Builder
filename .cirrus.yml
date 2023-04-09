@@ -1,12 +1,12 @@
 env:
-    MANIFEST: https://github.com/PixelExperience/manifest.git -b eleven-plus
-    DEVICE: miatoll
+    MANIFEST: https://github.com/PixelExperience/manifest -b thirteen-plus
+    DEVICE: joyeuse
     OEM: xiaomi
-    DT_LINK: https://github.com/PixelExperience-Devices/device_xiaomi_miatoll.git
+    DT_LINK: https://github.com/nekoshirro/PixelExperience-Thirteen.git -b device
     DT_PATH: device/$OEM/$DEVICE
-    VT_LINK: https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_miatoll.git
+    VT_LINK: https://github.com/nekoshirro/vendor_xiaomi_joyeuse.git
     VT_PATH: vendor/$OEM/$DEVICE
-    KT_LINK: https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sm6250.git
+    KT_LINK: https://github.com/nekoshirro/android_kernel_xiaomi_sm6250.git
     PLATFORM: sm6250
     KT_PATH: kernel/$OEM/$PLATFORM
     TARGET: bacon
