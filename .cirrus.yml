@@ -1,8 +1,8 @@
 env:
-    DEVICE: gtaxllte
-    OEM: samsung
-    EXTRA_CMD: export SKIP_ABI_CHECKS=true
-    LUNCH_COMBO: lineage_gtaxllte-userdebug
+    DEVICE: fleur
+    OEM: xiaomi
+    EXTRA_CMD: export TZ=Asia/Jakarta
+    LUNCH_COMBO: lineage_fleur-userdebug
     OUTPUT: lineage*.zip‏
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -23,8 +23,8 @@ task:
        - sudo apt update -y && sudo apt install git aria2 curl wget rsync zip unzip lzma cpio ccache clang -y
        - sudo apt install python3 -y
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
-       - git config --global user.name "Sushrut1101"
-       - git config --global user.email "guptasushrut@gmail.com"
+       - git config --global user.name "eltxd"
+       - git config --global user.email "nnp72412@gmail.com"
        - git clone https://github.com/akhilnarang/scripts.git ~/scripts
        - cd ~/scripts
        - sudo bash setup/android_build_env.sh
@@ -42,7 +42,7 @@ task:
       - mkdir lineage20.0
       - cd lineage20.0
       - repo init -u https://github.com/LineageOS/android.git -b lineage-20.0
-      - git clone https://github.com/TALUAtGitHub/gtaxl-manifests.git -b lineage-19.1 .repo/local_manifests
+      - git clone https://github.com/TALUAtGitHub/fleur-local_manifests.git .repo/local_manifests
       - repo sync -j31 --force-sync --no-tags --no-clone-bundle
       - echo "============================"
       - echo "Syncing Complete!"
@@ -58,8 +58,8 @@ task:
       - export CCACHE_EXEC=/usr/bin/ccache
       - ccache -M 50G
       - . build/envsetup.sh
-      - lunch lineage_gtaxllte-userdebug
-      - mka otapackage
+      - lunch lineage_fleur-userdebug
+      - mka bacon
      
   Upload_script:
       - echo "============================"
